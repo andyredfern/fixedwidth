@@ -47,7 +47,7 @@ class OutputFile
         return $this->paddingCharString;
     }
 
-    function setPaddingCharString($PaddingChar) {
+    function setPaddingCharString($paddingChar) {
         $this->paddingCharString = $paddingChar;
     }
 
@@ -55,7 +55,7 @@ class OutputFile
         return $this->paddingCharInteger;
     }
 
-    function setPaddingCharInteger($PaddingChar) {
+    function setPaddingCharInteger($paddingChar) {
         $this->paddingCharInteger = $paddingChar;
     }
 }
