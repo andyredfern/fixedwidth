@@ -90,5 +90,16 @@ class OutputFileTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($newFile->getPaddingCharInteger()," ");
     }
 
+    
+    //** @test */
+    public function check_default_padding_char_float() {
+        $newFile= new OutputFile();
+
+        $this->assertEquals($newFile->getPaddingCharFloat(),"0");
+
+        $newFile->setPaddingChar(" ");
+        $this->assertEquals($newFile->getPaddingCharFloat()," ");
+    }
+
 
 }

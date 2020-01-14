@@ -6,8 +6,8 @@ class OutputFieldTest extends \PHPUnit\Framework\TestCase
 {
 
     /** @test  */
-    public function output_various_integers() {
-
+    public function output_various_integers()
+    {
         $newFile = new OutputFile();
 
         $newField= new OutputField($newFile);
@@ -38,8 +38,38 @@ class OutputFieldTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test  */
-    public function output_various_dates() {
+    public function output_various_floats()
+    {
+        $newFile = new OutputFile();
 
+        $newField= new OutputField($newFile);
+
+        $fieldType = array("len"=>"10","type"=>"f","align"=>"right","name"=>"field1");
+        $float = 12.34;
+    
+        $result = $newField->outputField($fieldType,$float);
+
+        $this->assertEquals($result,"0000012.34");
+
+        $fieldType = array("len"=>"20","type"=>"f","align"=>"right","name"=>"field1");
+        $float = 123456.78;
+    
+        $result = $newField->outputField($fieldType,$float);
+
+        $this->assertEquals($result,"00000000000123456.78");
+
+        $fieldType = array("len"=>"20","type"=>"f","align"=>"right","name"=>"field1");
+        $float = 3.14^10;
+    
+        $result = $newField->outputField($fieldType,$float);
+
+        $this->assertEquals($result,"314000000000000000");
+    }
+
+
+    /** @test  */
+    public function output_various_dates()
+    {
         $newFile = new OutputFile();
 
         $newField= new OutputField($newFile);
@@ -67,5 +97,27 @@ class OutputFieldTest extends \PHPUnit\Framework\TestCase
 
     }
 
+    /** @test  */
+    public function output_various_strings()
+    {
+        $newFile = new OutputFile();
+
+        $newField= new OutputField($newFile);
+
+        $fieldType = array("len"=>"8","type"=>"s","align"=>"left","name"=>"field1");
+        $date = "Hello";
+    
+        $result = $newField->outputField($fieldType,$date);
+
+        $this->assertEquals($result,"Hello   ");
+
+        $fieldType = array("len"=>"10","type"=>"s","align"=>"right","name"=>"field1");
+        $date = "HelloHello";
+    
+        $result = $newField->outputField($fieldType,$date);
+
+        $this->assertEquals($result,"HelloHello");
+
+    }
 
 }
