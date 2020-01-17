@@ -1,9 +1,19 @@
 <?php
-
+/**
+ * OutputField class file
+ *
+ * Requires PHP version 7
+ * 
+ * @category Class
+ * @package  Andyredfern\Fixedwidth
+ * @author   Andy Redfern <and@redfern.it>
+ * @license  MIT License (MIT)
+ * @link     https://github.com/andyredfern/fixedwidth
+ */
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputField Class Doc Comment
+ * OutputField Class for fomattimg a variable as fixed length padded string
  * 
  * @category Class
  * @package  Andyredfern\Fixedwidth

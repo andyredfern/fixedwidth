@@ -1,52 +1,96 @@
 <?php
-
+/**
+ * OutputFileTest PHPUnit Tests for OutputFile
+ *  
+ * Requires PHP version 7
+ * 
+ * @category Tests
+ * @package  Andyredfern\Fixedwidth
+ * @author   Andy Redfern <and@redfern.it>
+ * @license  MIT License (MIT)
+ * @link     https://github.com/andyredfern/fixedwidth
+ */
 namespace Andyredfern\Fixedwidth;
 
+/**
+ * OutputFileTest PHPUnit Tests for OutputFile
+ * 
+ * @category Tests
+ * @package  Andyredfern\Fixedwidth
+ * @author   Andy Redfern <and@redfern.it>
+ * @license  MIT License (MIT)
+ * @link     https://github.com/andyredfern/fixedwidth
+ */
 class OutputFileTest extends \PHPUnit\Framework\TestCase
 {
 
-    /** @test  */
-    public function set_file_name_with_constructor() {
+    /** 
+     * Set Filename with the constructor
+     * 
+     * @return unused
+     * @test  
+     */
+    public function setFilenameWithConstructor()
+    {
 
         $pathname="";
         $filename ="test.txt";
-        $newFile= new OutputFile($pathname,$filename);
+        $newFile= new OutputFile($pathname, $filename);
 
-        $this->assertEquals($newFile->getFilename(),$filename);
-        $this->assertEquals($newFile->getPathname(),$pathname);
+        $this->assertEquals($newFile->getFilename(), $filename);
+        $this->assertEquals($newFile->getPathname(), $pathname);
     }
     
-    /** @test  */
-    public function set_file_name_and_pathname_with_constructor() {
+    /** 
+     * Set Filename and Pathname with the constructor
+     * 
+     * @return unused
+     * @test  
+     */
+    public function setFilenameAndPathnameWithConstructor()
+    {
 
         $pathname="tmp/outputfiles/";
         $filename ="test.txt";
-        $newFile= new OutputFile($pathname,$filename);
+        $newFile= new OutputFile($pathname, $filename);
 
-        $this->assertEquals($newFile->getFilename(),$filename);
-        $this->assertEquals($newFile->getPathname(),$pathname);
+        $this->assertEquals($newFile->getFilename(), $filename);
+        $this->assertEquals($newFile->getPathname(), $pathname);
     }
 
-    /** @test  */
-    public function set_file_name_with_setter() {
+    /** 
+     * Set Filename with the set method
+     * 
+     * @return unused
+     * @test  
+     */
+    public function setFileNameWithSetter()
+    {
 
         $pathname="";
         $filename ="";
-        $newFile= new OutputFile($pathname,$filename);
+        $newFile= new OutputFile($pathname, $filename);
 
         $filename ="test.txt";
 
         $newFile->setFilename($filename);
 
-        $this->assertEquals($newFile->getFilename(),$filename);
-        $this->assertEquals($newFile->getPathname(),$pathname);
+        $this->assertEquals($newFile->getFilename(), $filename);
+        $this->assertEquals($newFile->getPathname(), $pathname);
     }
-    /** @test  */
-    public function set_file_name_and_pathname_with_setter() {
+
+    /** 
+     * Set Filename and Pathname with the set method
+     * 
+     * @return unused
+     * @test  
+     */
+    public function setFilenameAndPathnameWithSetter()
+    {
 
         $pathname="";
         $filename ="";
-        $newFile= new OutputFile($pathname,$filename);
+        $newFile= new OutputFile($pathname, $filename);
 
         $pathname="tmp/outputfiles/";
         $filename ="test.txt";
@@ -54,52 +98,74 @@ class OutputFileTest extends \PHPUnit\Framework\TestCase
         $newFile->setFilename($filename);
         $newFile->setPathname($pathname);
 
-        $this->assertEquals($newFile->getFilename(),$filename);
-        $this->assertEquals($newFile->getPathname(),$pathname);
+        $this->assertEquals($newFile->getFilename(), $filename);
+        $this->assertEquals($newFile->getPathname(), $pathname);
     }
 
-    /** @test  */
-    public function use_get_fullpath_with_constructor() {
+    /** 
+     * Get full path with the constructor
+     * 
+     * @return unused
+     * @test  
+     */
+    public function useGetFullpathWithConstructor()
+    {
 
         $pathname="tmp/outputfiles/";
         $filename ="test.txt";
         $fullPath = $pathname . $filename;
-        $newFile= new OutputFile($pathname,$filename);
+        $newFile= new OutputFile($pathname, $filename);
 
-        $this->assertEquals($newFile->getFullpath(),$fullPath);
+        $this->assertEquals($newFile->getFullpath(), $fullPath);
     }
 
-    //** @test */
-    public function check_default_padding_char_string() {
+    /** 
+     * Check the default padding char for strings
+     * 
+     * @return unused
+     * @test  
+     */
+    public function checkDefaultPaddingCharString()
+    {
         $newFile= new OutputFile();
 
-        $this->assertEquals($newFile->getPaddingCharString()," ");
+        $this->assertEquals($newFile->getPaddingCharString(), " ");
 
         $newFile->setPaddingChar("0");
-        $this->assertEquals($newFile->getPaddingCharString(),"0");
+        $this->assertEquals($newFile->getPaddingCharString(), "0");
     }
 
     
-    //** @test */
-    public function check_default_padding_char_integer() {
+    /** 
+     * Check the default padding char for integers
+     * 
+     * @return unused
+     * @test  
+     */
+    public function checkDefaultPaddingCharInteger()
+    {
         $newFile= new OutputFile();
 
-        $this->assertEquals($newFile->getPaddingCharInteger(),"0");
+        $this->assertEquals($newFile->getPaddingCharInteger(), "0");
 
         $newFile->setPaddingChar(" ");
-        $this->assertEquals($newFile->getPaddingCharInteger()," ");
+        $this->assertEquals($newFile->getPaddingCharInteger(), " ");
     }
 
     
-    //** @test */
-    public function check_default_padding_char_float() {
+    /** 
+     * Check the default padding char for floats
+     * 
+     * @return unused
+     * @test  
+     */
+    public function checkDefaultPaddingCharFloat()
+    {
         $newFile= new OutputFile();
 
-        $this->assertEquals($newFile->getPaddingCharFloat(),"0");
+        $this->assertEquals($newFile->getPaddingCharFloat(), "0");
 
         $newFile->setPaddingChar(" ");
-        $this->assertEquals($newFile->getPaddingCharFloat()," ");
+        $this->assertEquals($newFile->getPaddingCharFloat(), " ");
     }
-
-
 }
