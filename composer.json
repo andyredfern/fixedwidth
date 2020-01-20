@@ -1,5 +1,5 @@
 {
-    "name": "Andyredfern/Fixedwidth",
+    "name": "andyredfern/fixedwidth",
     "type": "library",
     "description": "A PHP package to create fixed width files",
     "keywords": [
