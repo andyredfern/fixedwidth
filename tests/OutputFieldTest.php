@@ -97,11 +97,11 @@ class OutputFieldTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($result, "00000000000123456.78");
 
         $fieldType = array("len"=>"20","type"=>"f","align"=>"right","name"=>"field1");
-        $float = 3.14^10;
+        $float = 3.14;
     
         $result = $newField->outputField($fieldType, $float);
 
-        $this->assertEquals($result, "314000000000000000");
+        $this->assertEquals($result, "00000000000000003.14");
     }
 
 

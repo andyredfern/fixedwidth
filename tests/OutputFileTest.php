@@ -131,7 +131,7 @@ class OutputFileTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals($newFile->getPaddingCharString(), " ");
 
-        $newFile->setPaddingChar("0");
+        $newFile->setPaddingCharString("0");
         $this->assertEquals($newFile->getPaddingCharString(), "0");
     }
 
@@ -148,7 +148,7 @@ class OutputFileTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals($newFile->getPaddingCharInteger(), "0");
 
-        $newFile->setPaddingChar(" ");
+        $newFile->setPaddingCharInteger(" ");
         $this->assertEquals($newFile->getPaddingCharInteger(), " ");
     }
 
@@ -165,7 +165,7 @@ class OutputFileTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals($newFile->getPaddingCharFloat(), "0");
 
-        $newFile->setPaddingChar(" ");
+        $newFile->setPaddingCharFloat(" ");
         $this->assertEquals($newFile->getPaddingCharFloat(), " ");
     }
 }
