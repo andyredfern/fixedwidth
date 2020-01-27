@@ -25,14 +25,13 @@ class OutputRowFormatter
 {
 
     /**
-     * Public function that process the $value and returns a
-     * formatted, fixed-length string
+     * Processes values according to fieldSpecs generating fixed width row.
      *
-     * @param $value     can be a string, integer, floating point or date
-     * @param array  $fieldSpec The parameters to control the output
-     * @param string $padString string used to pad.
+     * @param array  $values     can be a string, integer, floating point or date
+     * @param array  $fieldSpecs The parameters to control the output
+     * @param string $padString  string used to pad.
      *
-     * @return string formatted string of the submitted $value
+     * @return string formatted string of the submitted $values
      */
     public static function format(
         array $values,
