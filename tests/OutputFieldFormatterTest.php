@@ -81,10 +81,10 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "type" => "f",
             "align" => "right",
             "name" => "field1",
-            "format" => "%04.4f");
+            "format" => "%09.4f");
         $float = 12.34;
 
-        $result = OutputFieldFormatter::format($float, $fieldType, "0");
+        $result = OutputFieldFormatter::format($float, $fieldType, " ");
 
         $this->assertEquals($result, "0012.3400");
 

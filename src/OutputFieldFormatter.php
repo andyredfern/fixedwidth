@@ -60,7 +60,7 @@ class OutputFieldFormatter
             $valueString,
             $fieldSpec["len"],
             $padString,
-            $fieldSpec["align"]
+            $fieldSpec["align"] ?? "right"
         );
     }
 
