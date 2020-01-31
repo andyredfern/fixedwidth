@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputRowFormatter class file
+ * RowFormatter class file
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputRowFormatter Class for fomattimg a variable as fixed length padded string
+ * RowFormatter Class for fomattimg a variable as fixed length padded string
  *
  * @category Class
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputRowFormatter
+class RowFormatter
 {
 
     /**
@@ -46,7 +46,7 @@ class OutputRowFormatter
 
         $rowString = "";
         for ($x = 0; $x < count($values); $x++) {
-            $rowString .= OutputFieldFormatter::format(
+            $rowString .= FieldFormatter::format(
                 $values[$x],
                 $fieldSpecs[$x],
                 $padString

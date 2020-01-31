@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputFieldTest PHPUnit Tests for OutputField class
+ * FieldTest PHPUnit Tests for Field class
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputFieldTest PHPUnit Tests for OutputField class
+ * FieldTest PHPUnit Tests for Field class
  *
  * @category Tests
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
+class FieldFormatterTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
@@ -40,7 +40,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1");
         $integer = 26;
 
-        $result = OutputFieldFormatter::format($integer, $fieldType, "0");
+        $result = FieldFormatter::format($integer, $fieldType, "0");
 
         $this->assertEquals($result, "0000000026");
 
@@ -51,7 +51,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1");
         $integer = 3124;
 
-        $result = OutputFieldFormatter::format($integer, $fieldType, "0");
+        $result = FieldFormatter::format($integer, $fieldType, "0");
 
         $this->assertEquals($result, "00003124");
 
@@ -62,7 +62,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1");
         $integer = 199;
 
-        $result = OutputFieldFormatter::format($integer, $fieldType, " ");
+        $result = FieldFormatter::format($integer, $fieldType, " ");
 
         $this->assertEquals($result, "     199");
 
@@ -84,7 +84,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "format" => "%09.4f");
         $float = 12.34;
 
-        $result = OutputFieldFormatter::format($float, $fieldType, " ");
+        $result = FieldFormatter::format($float, $fieldType, " ");
 
         $this->assertEquals($result, "0012.3400");
 
@@ -96,7 +96,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "format" => "%0.2f");
         $float = 12.3456;
 
-        $result = OutputFieldFormatter::format($float, $fieldType, " ");
+        $result = FieldFormatter::format($float, $fieldType, " ");
 
         $this->assertEquals($result, "    12.35");
     }
@@ -118,7 +118,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "format" => "Ymd");
         $date = "12 June 2021";
 
-        $result = OutputFieldFormatter::format($date, $fieldType, " ");
+        $result = FieldFormatter::format($date, $fieldType, " ");
 
         $this->assertEquals($result, "20210612");
 
@@ -130,7 +130,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "format" => "Ymd");
         $date = "";
 
-        $result = OutputFieldFormatter::format($date, $fieldType, " ");
+        $result = FieldFormatter::format($date, $fieldType, " ");
 
         $this->assertEquals($result, str_pad(" ", 8));
 
@@ -142,7 +142,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "format" => "Y-m-d");
         $date = "12 May 2022";
 
-        $result = OutputFieldFormatter::format($date, $fieldType, " ");
+        $result = FieldFormatter::format($date, $fieldType, " ");
 
         $this->assertEquals($result, "2022-05-12");
 
@@ -164,7 +164,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1");
         $str = "Hello";
 
-        $result = OutputFieldFormatter::format($str, $fieldType, " ");
+        $result = FieldFormatter::format($str, $fieldType, " ");
 
         $this->assertEquals($result, "Hello   ");
 
@@ -175,7 +175,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1");
         $str = "HelloHello";
 
-        $result = OutputFieldFormatter::format($str, $fieldType, " ");
+        $result = FieldFormatter::format($str, $fieldType, " ");
 
         $this->assertEquals($result, "HelloHello");
 
@@ -186,7 +186,7 @@ class OutputFieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1");
         $str = "HelloHello";
 
-        $result = OutputFieldFormatter::format($str, $fieldType, " ");
+        $result = FieldFormatter::format($str, $fieldType, " ");
 
         $this->assertEquals($result, "Hello");
 

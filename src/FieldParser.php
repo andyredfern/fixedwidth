@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputFieldParser class file
+ * FieldParser class file
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputFieldParser Class for parsing a variable from a fixed length padded string.
+ * FieldParser Class for parsing a variable from a fixed length padded string.
  *
  * @category Class
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputFieldParser
+class FieldParser
 {
 
     /**
@@ -35,23 +35,23 @@ class OutputFieldParser
      */
     public static function parse(string $string, $fieldSpec, $padString)
     {
-        $denormalisedString = OutputFieldParser::_denormaliseString(
+        $denormalisedString = FieldParser::_denormaliseString(
             $string,
             $padString,
             empty($fieldSpec["align"]) ? "right" : $fieldSpec["align"]
         );
         switch ($fieldSpec["type"]) {
         case "i": // integer
-            $value = OutputFieldParser::_parseInteger($denormalisedString);
+            $value = FieldParser::_parseInteger($denormalisedString);
             break;
         case "f": // floating point
-            $value = OutputFieldParser::_parseFloat($denormalisedString);
+            $value = FieldParser::_parseFloat($denormalisedString);
             break;
         case "s": // string
             $value = $denormalisedString;
             break;
         case "d": // date
-            $value = OutputFieldParser::_parseDate(
+            $value = FieldParser::_parseDate(
                 $denormalisedString,
                 empty($fieldSpec["format"]) ? "" : $fieldSpec["format"]
             );

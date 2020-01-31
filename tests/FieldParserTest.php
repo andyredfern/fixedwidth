@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputFieldParserTest PHPUnit Tests for OutputFieldParser class
+ * FieldParserTest PHPUnit Tests for FieldParser class
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputFieldTest PHPUnit Tests for OutputField class
+ * FieldTest PHPUnit Tests for Field class
  *
  * @category Tests
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
+class FieldParserTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
@@ -39,7 +39,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "right");
         $integerString = "0000000026";
 
-        $result = OutputFieldParser::parse($integerString, $fieldType, "0");
+        $result = FieldParser::parse($integerString, $fieldType, "0");
 
         $this->assertEquals($result, 26);
 
@@ -49,7 +49,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "right");
         $integerString = "00003124";
 
-        $result = OutputFieldParser::parse($integerString, $fieldType, "0");
+        $result = FieldParser::parse($integerString, $fieldType, "0");
 
         $this->assertEquals($result, 3124);
 
@@ -59,7 +59,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "right");
         $integerString = "     199";
 
-        $result = OutputFieldParser::parse($integerString, $fieldType, " ");
+        $result = FieldParser::parse($integerString, $fieldType, " ");
 
         $this->assertEquals($result, 199);
 
@@ -69,7 +69,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "left");
         $integerString = "199     ";
 
-        $result = OutputFieldParser::parse($integerString, $fieldType, " ");
+        $result = FieldParser::parse($integerString, $fieldType, " ");
 
         $this->assertEquals($result, 199);
 
@@ -90,7 +90,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "format" => "%09.4f");
         $float = "0012.3400";
 
-        $result = OutputFieldParser::parse($float, $fieldType, " ");
+        $result = FieldParser::parse($float, $fieldType, " ");
 
         $this->assertEquals($result, 12.34);
 
@@ -101,7 +101,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "format" => "%0.2f");
         $float = "    12.35";
 
-        $result = OutputFieldParser::parse($float, $fieldType, " ");
+        $result = FieldParser::parse($float, $fieldType, " ");
 
         $this->assertEquals($result, 12.35);
     }
@@ -122,7 +122,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "format" => "Ymd");
         $date = "20210612";
 
-        $result = OutputFieldParser::parse($date, $fieldType, " ");
+        $result = FieldParser::parse($date, $fieldType, " ");
         $this->assertEquals($result["year"], 2021);
         $this->assertEquals($result["month"], 6);
         $this->assertEquals($result["day"], 12);
@@ -134,7 +134,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "format" => "Ymd");
         $date = str_pad(" ", 8);
 
-        $result = OutputFieldParser::parse($date, $fieldType, " ");
+        $result = FieldParser::parse($date, $fieldType, " ");
 
         $this->assertTrue(array_key_exists("errors", $result));
 
@@ -145,7 +145,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "format" => "Y-m-d");
         $date = "2022-05-12";
 
-        $result = OutputFieldParser::parse($date, $fieldType, " ");
+        $result = FieldParser::parse($date, $fieldType, " ");
 
         $this->assertEquals($result["year"], 2022);
         $this->assertEquals($result["month"], 5);
@@ -157,7 +157,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "right");
         $date = "2022-05-12";
 
-        $result = OutputFieldParser::parse($date, $fieldType, " ");
+        $result = FieldParser::parse($date, $fieldType, " ");
 
         $this->assertEquals($result["year"], 2022);
         $this->assertEquals($result["month"], 5);
@@ -169,7 +169,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "right");
         $date = "      2022-05-12";
 
-        $result = OutputFieldParser::parse($date, $fieldType, " ");
+        $result = FieldParser::parse($date, $fieldType, " ");
 
         $this->assertEquals($result["year"], 2022);
         $this->assertEquals($result["month"], 5);
@@ -192,7 +192,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "left");
         $str = "Hello   ";
 
-        $result = OutputFieldParser::parse($str, $fieldType, " ");
+        $result = FieldParser::parse($str, $fieldType, " ");
 
         $this->assertEquals($result, "Hello");
 
@@ -202,7 +202,7 @@ class OutputFieldParserTest extends \PHPUnit\Framework\TestCase
             "align" => "right");
         $str = "HelloHello";
 
-        $result = OutputFieldParser::parse($str, $fieldType, " ");
+        $result = FieldParser::parse($str, $fieldType, " ");
 
         $this->assertEquals($result, "HelloHello");
     }

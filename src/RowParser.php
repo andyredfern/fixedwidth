@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputRowParser class file
+ * RowParser class file
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputRowParser Class for fomattimg a variable as fixed length padded string
+ * RowParser Class for fomattimg a variable as fixed length padded string
  *
  * @category Class
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputRowParser
+class RowParser
 {
 
     /**
@@ -62,7 +62,7 @@ class OutputRowParser
                 "Attempting to parse data <$string> anyway.";
             }
 
-            $values[] = OutputFieldParser::parse($string, $spec, $padString);
+            $values[] = FieldParser::parse($string, $spec, $padString);
             $position += $length;
         }
 

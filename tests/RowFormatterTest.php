@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputRowFormatterTest PHPUnit Tests for OutputRowFormatter class
+ * RowFormatterTest PHPUnit Tests for RowFormatter class
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputRowFormatterTest PHPUnit Tests for OutputRowFormatter class
+ * RowFormatterTest PHPUnit Tests for RowFormatter class
  *
  * @category Tests
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
+class RowFormatterTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
@@ -46,7 +46,7 @@ class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
         $values = array("first", "second");
 
         // When
-        $result = OutputRowFormatter::format($values, $fieldSpecs, " ");
+        $result = RowFormatter::format($values, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, "     first         second");
@@ -72,7 +72,7 @@ class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
         $values = array("first", "second");
 
         // When
-        $result = OutputRowFormatter::format($values, $fieldSpecs, " ");
+        $result = RowFormatter::format($values, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, "     first         second");
@@ -100,7 +100,7 @@ class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
         $values = array("first", "second");
 
         // When
-        $result = OutputRowFormatter::format($values, $fieldSpecs, " ");
+        $result = RowFormatter::format($values, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, "first     second         ");
@@ -122,7 +122,7 @@ class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
         $values = array("first", "second");
 
         // When
-        $result = OutputRowFormatter::format($values, $fieldSpecs, "0");
+        $result = RowFormatter::format($values, $fieldSpecs, "0");
 
         // Then
         $this->assertEquals($result, "00000first000000000second");
@@ -146,7 +146,7 @@ class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
         $values = array("first", 12, 3.45, "12 June 2021");
 
         // When
-        $result = OutputRowFormatter::format($values, $fieldSpecs, " ");
+        $result = RowFormatter::format($values, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, "     first        12 0003.4500  20210612");
@@ -168,6 +168,6 @@ class OutputRowFormatterTest extends \PHPUnit\Framework\TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         // When
-        $result = OutputRowFormatter::format($values, $fieldSpecs, " ");
+        $result = RowFormatter::format($values, $fieldSpecs, " ");
     }
 }

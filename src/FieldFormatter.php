@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputFieldFormatter class file
+ * FieldFormatter class file
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputFieldFormatter Class for fomattimg a variable as fixed length padded string
+ * FieldFormatter Class for fomattimg a variable as fixed length padded string
  *
  * @category Class
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputFieldFormatter
+class FieldFormatter
 {
 
     /**
@@ -38,10 +38,10 @@ class OutputFieldFormatter
     {
         switch ($fieldSpec["type"]) {
         case "i": // integer
-            $valueString = OutputFieldFormatter::_formatInteger($value);
+            $valueString = FieldFormatter::_formatInteger($value);
             break;
         case "f": // floating point
-            $valueString = OutputFieldFormatter::_formatFloat(
+            $valueString = FieldFormatter::_formatFloat(
                 $value,
                 $fieldSpec["format"]
             );
@@ -50,13 +50,13 @@ class OutputFieldFormatter
             $valueString = $value;
             break;
         case "d": // date
-            $valueString = OutputFieldFormatter::_formatDate(
+            $valueString = FieldFormatter::_formatDate(
                 $value,
                 $fieldSpec["format"]
             );
             break;
         }
-        return OutputFieldFormatter::_normaliseString(
+        return FieldFormatter::_normaliseString(
             $valueString,
             $fieldSpec["len"],
             $padString,

@@ -1,6 +1,6 @@
 <?php
 /**
- * OutputRowParserTest PHPUnit Tests for OutputRowParser class
+ * RowParserTest PHPUnit Tests for RowParser class
  *
  * Requires PHP version 7
  *
@@ -13,7 +13,7 @@
 namespace Andyredfern\Fixedwidth;
 
 /**
- * OutputRowParserTest PHPUnit Tests for OutputRowParser class
+ * RowParserTest PHPUnit Tests for RowParser class
  *
  * @category Tests
  * @package  Andyredfern\Fixedwidth
@@ -21,7 +21,7 @@ namespace Andyredfern\Fixedwidth;
  * @license  MIT License (MIT)
  * @link     https://github.com/andyredfern/fixedwidth
  */
-class OutputRowParserTest extends \PHPUnit\Framework\TestCase
+class RowParserTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
@@ -47,7 +47,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $row = "     first         second";
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, " ");
+        $result = RowParser::parse($row, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, $expectedValues);
@@ -74,7 +74,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $row = "     first         second";
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, " ");
+        $result = RowParser::parse($row, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, $expectedValues);
@@ -103,7 +103,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $row = "first     second         ";
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, " ");
+        $result = RowParser::parse($row, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, $expectedValues);
@@ -126,7 +126,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $row = "00000first000000000second";
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, "0");
+        $result = RowParser::parse($row, $fieldSpecs, "0");
 
         // Then
         $this->assertEquals($result, $expectedValues);
@@ -151,7 +151,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $row = "     first        12 0003.4500  20210612";
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, " ");
+        $result = RowParser::parse($row, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, $expectedValues);
@@ -174,7 +174,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $this->expectException(\OutOfBoundsException::class);
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, " ");
+        $result = RowParser::parse($row, $fieldSpecs, " ");
     }
 
     /**
@@ -200,7 +200,7 @@ class OutputRowParserTest extends \PHPUnit\Framework\TestCase
         $row = "first     second  ";
 
         // When
-        $result = OutputRowParser::parse($row, $fieldSpecs, " ");
+        $result = RowParser::parse($row, $fieldSpecs, " ");
 
         // Then
         $this->assertEquals($result, $expectedValues);
