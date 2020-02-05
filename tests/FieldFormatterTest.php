@@ -66,6 +66,28 @@ class FieldFormatterTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals($result, "     199");
 
+        $fieldType = array(
+            "len" => "8",
+            "type" => "i",
+            "align" => "right",
+            "name" => "field1");
+        $integer = 0;
+
+        $result = FieldFormatter::format($integer, $fieldType, " ");
+
+        $this->assertEquals($result, "       0");
+
+        $fieldType = array(
+            "len" => "8",
+            "type" => "i",
+            "align" => "right",
+            "name" => "field1");
+        $integer = "";
+
+        $result = FieldFormatter::format($integer, $fieldType, " ");
+
+        $this->assertEquals($result, "        ");
+
     }
 
     /**
@@ -99,6 +121,42 @@ class FieldFormatterTest extends \PHPUnit\Framework\TestCase
         $result = FieldFormatter::format($float, $fieldType, " ");
 
         $this->assertEquals($result, "    12.35");
+
+        $fieldType = array(
+            "len" => "9",
+            "type" => "f",
+            "align" => "right",
+            "name" => "field1",
+            "format" => "%0.2f");
+        $float = 0.0;
+
+        $result = FieldFormatter::format($float, $fieldType, " ");
+
+        $this->assertEquals($result, "     0.00");
+
+        $fieldType = array(
+            "len" => "9",
+            "type" => "f",
+            "align" => "right",
+            "name" => "field1",
+            "format" => "%0.2f");
+        $float = 0;
+
+        $result = FieldFormatter::format($float, $fieldType, " ");
+
+        $this->assertEquals($result, "     0.00");
+
+        $fieldType = array(
+            "len" => "9",
+            "type" => "f",
+            "align" => "right",
+            "name" => "field1",
+            "format" => "%0.2f");
+        $float = "";
+
+        $result = FieldFormatter::format($float, $fieldType, " ");
+
+        $this->assertEquals($result, "         ");
     }
 
     /**

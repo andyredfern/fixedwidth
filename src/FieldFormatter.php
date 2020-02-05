@@ -73,7 +73,7 @@ class FieldFormatter
      */
     private static function _formatInteger($value): string
     {
-        if (empty($value)) {
+        if (!is_int($value)) {
             return "";
         }
         return strval($value);
@@ -91,7 +91,7 @@ class FieldFormatter
         $value,
         string $format = "%0.2f"
     ): string {
-        if (empty($value)) {
+        if (!is_numeric($value)) {
             return "";
         }
         return sprintf($format, $value);
