@@ -71,6 +71,17 @@ class FieldFormatterTest extends \PHPUnit\Framework\TestCase
             "type" => "i",
             "align" => "right",
             "name" => "field1");
+        $integer = "199";
+
+        $result = FieldFormatter::format($integer, $fieldType, " ");
+
+        $this->assertEquals($result, "     199");
+
+        $fieldType = array(
+            "len" => "8",
+            "type" => "i",
+            "align" => "right",
+            "name" => "field1");
         $integer = 0;
 
         $result = FieldFormatter::format($integer, $fieldType, " ");
@@ -141,6 +152,18 @@ class FieldFormatterTest extends \PHPUnit\Framework\TestCase
             "name" => "field1",
             "format" => "%0.2f");
         $float = 0;
+
+        $result = FieldFormatter::format($float, $fieldType, " ");
+
+        $this->assertEquals($result, "     0.00");
+
+        $fieldType = array(
+            "len" => "9",
+            "type" => "f",
+            "align" => "right",
+            "name" => "field1",
+            "format" => "%0.2f");
+        $float = "0";
 
         $result = FieldFormatter::format($float, $fieldType, " ");
 
